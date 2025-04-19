@@ -1,0 +1,167 @@
+<UserControl x:Class="CivilRegistryApp.Modules.Dashboard.Views.DashboardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:CivilRegistryApp.Modules.Dashboard.Views"
+             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
+             mc:Ignorable="d"
+             d:DesignHeight="700" d:DesignWidth="800"
+             Loaded="UserControl_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Dashboard Header -->
+        <TextBlock Grid.Row="0" Text="Dashboard" FontSize="24" FontWeight="Bold" Margin="0,0,0,20"/>
+
+        <!-- Statistics Widgets -->
+        <WrapPanel Grid.Row="1" Margin="0,0,0,20">
+            <!-- Total Documents Widget -->
+            <Border Width="180" Height="120" Margin="0,0,20,20" Background="#4CAF50" CornerRadius="10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="Total Documents" Foreground="White" FontWeight="Bold" Margin="10,10,10,0"/>
+                    <TextBlock Grid.Row="1" x:Name="TotalDocumentsTextBlock" Text="0" Foreground="White" FontSize="36" FontWeight="Bold"
+                               VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Grid>
+            </Border>
+
+            <!-- Pending Requests Widget -->
+            <Border Width="180" Height="120" Margin="0,0,20,20" Background="#2196F3" CornerRadius="10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="Pending Requests" Foreground="White" FontWeight="Bold" Margin="10,10,10,0"/>
+                    <TextBlock Grid.Row="1" x:Name="PendingRequestsTextBlock" Text="0" Foreground="White" FontSize="36" FontWeight="Bold"
+                               VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Grid>
+            </Border>
+
+            <!-- Documents This Month Widget -->
+            <Border Width="180" Height="120" Margin="0,0,20,20" Background="#FF9800" CornerRadius="10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="Documents This Month" Foreground="White" FontWeight="Bold" Margin="10,10,10,0"/>
+                    <TextBlock Grid.Row="1" x:Name="MonthlyDocumentsTextBlock" Text="0" Foreground="White" FontSize="36" FontWeight="Bold"
+                               VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Grid>
+            </Border>
+
+            <!-- Completed Requests Widget -->
+            <Border Width="180" Height="120" Margin="0,0,20,20" Background="#9C27B0" CornerRadius="10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="Completed Requests" Foreground="White" FontWeight="Bold" Margin="10,10,10,0"/>
+                    <TextBlock Grid.Row="1" x:Name="CompletedRequestsTextBlock" Text="0" Foreground="White" FontSize="36" FontWeight="Bold"
+                               VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Grid>
+            </Border>
+        </WrapPanel>
+
+        <!-- Charts and Activity Feed -->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="350"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Charts -->
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Documents by Type Chart -->
+                <Border Grid.Row="0" BorderBrush="#CCCCCC" BorderThickness="1" Margin="0,0,20,10" Padding="10" Background="#F9F9F9" CornerRadius="5">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Text="Documents by Type" FontWeight="Bold" Margin="0,0,0,10"/>
+                        <lvc:PieChart Grid.Row="1" x:Name="DocumentsByTypeChart" Series="{Binding DocumentTypeSeries}"
+                                     LegendPosition="Right" />
+                    </Grid>
+                </Border>
+
+                <!-- Monthly Documents Chart -->
+                <Border Grid.Row="1" BorderBrush="#CCCCCC" BorderThickness="1" Margin="0,10,20,0" Padding="10" Background="#F9F9F9" CornerRadius="5">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Text="Documents Added (Last 6 Months)" FontWeight="Bold" Margin="0,0,0,10"/>
+                        <lvc:CartesianChart Grid.Row="1" x:Name="MonthlyDocumentsChart" Series="{Binding MonthlyDocumentsSeries}"
+                                           XAxes="{Binding MonthlyDocumentsXAxes}" />
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <!-- Recent Activity Feed -->
+            <Border Grid.Column="1" BorderBrush="#CCCCCC" BorderThickness="1" Margin="0,0,0,0" Padding="10" Background="#F9F9F9" CornerRadius="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="Recent Activity" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                        <ItemsControl x:Name="ActivityFeedItemsControl">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border BorderBrush="#EEEEEE" BorderThickness="0,0,0,1" Padding="5">
+                                        <Grid Margin="0,5">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <!-- Activity Icon -->
+                                            <Border Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Width="32" Height="32"
+                                                    Background="{Binding IconBackground}" CornerRadius="16" Margin="0,0,10,0">
+                                                <TextBlock Text="{Binding IconText}" Foreground="White" FontWeight="Bold"
+                                                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+
+                                            <!-- Activity Description -->
+                                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Description}" TextWrapping="Wrap"/>
+
+                                            <!-- Activity Timestamp -->
+                                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Timestamp}" FontSize="11"
+                                                       Foreground="#666666" Margin="0,3,0,0"/>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <!-- Refresh Button -->
+        <Button Grid.Row="3" Content="Refresh Dashboard" HorizontalAlignment="Right" Margin="0,20,0,0" Padding="10,5" Click="RefreshButton_Click" Style="{StaticResource {x:Type Button}}"/>
+    </Grid>
+</UserControl>

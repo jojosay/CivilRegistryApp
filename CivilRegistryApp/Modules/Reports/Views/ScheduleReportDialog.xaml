@@ -1,0 +1,97 @@
+<Window x:Class="CivilRegistryApp.Modules.Reports.Views.ScheduleReportDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CivilRegistryApp.Modules.Reports.Views"
+        mc:Ignorable="d"
+        Title="Schedule Report" Height="450" Width="500"
+        WindowStartupLocation="CenterOwner" ResizeMode="NoResize"
+        Background="{StaticResource PrimaryBrush}">
+    <Grid Margin="15" Background="{StaticResource PrimaryBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <TextBlock Grid.Row="0" Text="Schedule Report" FontSize="18" FontWeight="Bold" Margin="0,0,0,15" Foreground="White"/>
+
+        <!-- Form -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Report Name -->
+                <Label Grid.Row="0" Grid.Column="0" Content="Report Name:" Margin="0,5" Foreground="White"/>
+                <TextBox Grid.Row="0" Grid.Column="1" x:Name="ReportNameTextBox" Margin="0,5"/>
+
+                <!-- Schedule -->
+                <Label Grid.Row="1" Grid.Column="0" Content="Schedule:" Margin="0,5" Foreground="White"/>
+                <Grid Grid.Row="1" Grid.Column="1" Margin="0,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <ComboBox Grid.Column="0" x:Name="ScheduleComboBox" SelectionChanged="ScheduleComboBox_SelectionChanged">
+                        <ComboBoxItem Content="Daily" Tag="0 0 12 * * ?"/>
+                        <ComboBoxItem Content="Weekly (Monday)" Tag="0 0 12 ? * MON" IsSelected="True"/>
+                        <ComboBoxItem Content="Monthly (1st day)" Tag="0 0 12 1 * ?"/>
+                        <ComboBoxItem Content="Custom"/>
+                    </ComboBox>
+                    <Button Grid.Column="1" Content="?" Width="25" Margin="5,0,0,0" Click="ScheduleHelpButton_Click"/>
+                </Grid>
+
+                <!-- Custom Schedule (Cron Expression) -->
+                <Label Grid.Row="2" Grid.Column="0" Content="Cron Expression:" Margin="0,5" x:Name="CronExpressionLabel" Visibility="Collapsed" Foreground="White"/>
+                <TextBox Grid.Row="2" Grid.Column="1" x:Name="CronExpressionTextBox" Margin="0,5" Visibility="Collapsed"/>
+
+                <!-- Export Format -->
+                <Label Grid.Row="3" Grid.Column="0" Content="Export Format:" Margin="0,5" Foreground="White"/>
+                <ComboBox Grid.Row="3" Grid.Column="1" x:Name="ExportFormatComboBox" Margin="0,5">
+                    <ComboBoxItem Content="PDF" IsSelected="True"/>
+                    <ComboBoxItem Content="Excel"/>
+                </ComboBox>
+
+                <!-- Output Path -->
+                <Label Grid.Row="4" Grid.Column="0" Content="Output Path:" Margin="0,5" Foreground="White"/>
+                <Grid Grid.Row="4" Grid.Column="1" Margin="0,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0" x:Name="OutputPathTextBox"/>
+                    <Button Grid.Column="1" Content="Browse" Width="60" Margin="5,0,0,0" Click="BrowseButton_Click"/>
+                </Grid>
+
+                <!-- Email Recipients -->
+                <Label Grid.Row="5" Grid.Column="0" Content="Email Recipients:" Margin="0,5" Foreground="White"/>
+                <TextBox Grid.Row="5" Grid.Column="1" x:Name="EmailRecipientsTextBox" Margin="0,5"
+                         ToolTip="Separate multiple email addresses with semicolons (;)"/>
+
+                <!-- Active -->
+                <Label Grid.Row="6" Grid.Column="0" Content="Active:" Margin="0,5" Foreground="White"/>
+                <CheckBox Grid.Row="6" Grid.Column="1" x:Name="ActiveCheckBox" Margin="0,10" IsChecked="True"/>
+            </Grid>
+        </ScrollViewer>
+
+        <!-- Buttons -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,15,0,0">
+            <Button x:Name="SaveButton" Content="Save" Width="80" Height="30" Margin="0,0,10,0" Click="SaveButton_Click"/>
+            <Button x:Name="CancelButton" Content="Cancel" Width="80" Height="30" Click="CancelButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

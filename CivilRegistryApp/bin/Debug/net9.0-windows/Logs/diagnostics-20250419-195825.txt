@@ -1,0 +1,91 @@
+=== Civil Registry App Diagnostics ===
+Date/Time: 2025-04-19 19:58:25
+
+=== System Information ===
+OS Version: Microsoft Windows NT 10.0.26100.0
+.NET Version: 9.0.4
+64-bit OS: True
+64-bit Process: True
+Processor Count: 12
+Machine Name: MACUBEX-PC
+Current Directory: E:\dev_apps\ai_apps\new_app
+
+=== Application Information ===
+Application Name: CivilRegistryApp
+Application Version: 1.0.0.0
+Base Directory: E:\dev_apps\ai_apps\new_app\CivilRegistryApp\bin\Debug\net9.0-windows\
+
+=== File System Access ===
+Log Directory: E:\dev_apps\ai_apps\new_app\CivilRegistryApp\bin\Debug\net9.0-windows\Logs
+Log Directory Exists: True
+Can Write to Log Directory: True
+App Directory: E:\dev_apps\ai_apps\new_app\CivilRegistryApp\bin\Debug\net9.0-windows\
+Can Write to App Directory: True
+
+=== Database Connection ===
+Database Path: E:\dev_apps\ai_apps\new_app\CivilRegistryApp\bin\Debug\net9.0-windows\CivilRegistry.db
+Database File Exists: True
+Database Connection: Success
+SQLite Version: 3.46.1
+
+=== Loaded Assemblies ===
+System.Private.CoreLib - 9.0.0.0
+CivilRegistryApp - 1.0.0.0
+PresentationFramework - 9.0.0.0
+WindowsBase - 9.0.0.0
+System.Runtime - 9.0.0.0
+System.Xaml - 9.0.0.0
+System.IO.Packaging - 9.0.0.0
+System.Private.Uri - 9.0.0.0
+PresentationCore - 9.0.0.0
+System.Runtime.InteropServices - 9.0.0.0
+Microsoft.Win32.Primitives - 9.0.0.0
+DirectWriteForwarder - 9.0.0.0
+System.Runtime.Extensions - 9.0.0.0
+System.Diagnostics.Debug - 9.0.0.0
+System.Runtime.CompilerServices.VisualC - 9.0.0.0
+System.Threading - 9.0.0.0
+System.Collections.NonGeneric - 9.0.0.0
+Microsoft.Win32.Registry - 9.0.0.0
+System.Collections - 9.0.0.0
+System.Collections.Specialized - 9.0.0.0
+System.Memory - 9.0.0.0
+System.ComponentModel.Primitives - 9.0.0.0
+System.Threading.Thread - 9.0.0.0
+System.Configuration.ConfigurationManager - 9.0.0.0
+System.Xml.ReaderWriter - 9.0.0.0
+System.Private.Xml - 9.0.0.0
+System.Net.WebClient - 9.0.0.0
+System.Text.Encoding.Extensions - 9.0.0.0
+System.Linq - 9.0.0.0
+System.Numerics.Vectors - 9.0.0.0
+Serilog - 4.2.0.0
+Serilog.Sinks.Console - 6.0.0.0
+Serilog.Sinks.File - 6.0.0.0
+System.Console - 9.0.0.0
+System.Text.RegularExpressions - 9.0.0.0
+System.Reflection.Emit.Lightweight - 9.0.0.0
+System.Reflection.Emit.ILGeneration - 9.0.0.0
+System.Reflection.Primitives - 9.0.0.0
+System.Diagnostics.DiagnosticSource - 9.0.0.0
+System.Diagnostics.Tracing - 9.0.0.0
+System.Threading.ThreadPool - 9.0.0.0
+System.Diagnostics.TraceSource - 9.0.0.0
+System.ComponentModel.TypeConverter - 9.0.0.0
+System.Windows.Extensions - 9.0.0.0
+System.ComponentModel - 9.0.0.0
+System.Collections.Concurrent - 9.0.0.0
+System.ObjectModel - 9.0.0.0
+System.Net.Requests - 9.0.0.0
+System.Net.Primitives - 9.0.0.0
+System.Net.WebHeaderCollection - 9.0.0.0
+System.Diagnostics.Process - 9.0.0.0
+Microsoft.Extensions.DependencyInjection.Abstractions - 9.0.0.0
+Microsoft.Extensions.DependencyInjection - 9.0.0.0
+Microsoft.EntityFrameworkCore - 9.0.4.0
+Microsoft.Data.Sqlite - 9.0.4.0
+System.Data.Common - 9.0.0.0
+SQLitePCLRaw.core - 2.1.10.2445
+netstandard - 2.1.0.0
+SQLitePCLRaw.batteries_v2 - 2.1.10.2445
+SQLitePCLRaw.provider.e_sqlite3 - 2.1.10.2445

@@ -1,0 +1,22 @@
+﻿Crash occurred at: 2025-04-18 13:11:30.347
+Source: Application.DispatcherUnhandledException
+
+Exception details:
+Message: 'No matching constructor found on type 'CivilRegistryApp.MainWindow'. You can use the Arguments or FactoryMethod directives to construct this type.' Line number '6' and line position '9'.
+Type: System.Windows.Markup.XamlParseException
+Stack trace:    at System.Windows.Markup.XamlReader.RewrapException(Exception e, IXamlLineInfo lineInfo, Uri baseUri)
+   at System.Windows.Markup.WpfXamlLoader.Load(XamlReader xamlReader, IXamlObjectWriterFactory writerFactory, Boolean skipJournaledProperties, Object rootObject, XamlObjectWriterSettings settings, Uri baseUri)
+   at System.Windows.Markup.WpfXamlLoader.LoadBaml(XamlReader xamlReader, Boolean skipJournaledProperties, Object rootObject, XamlAccessLevel accessLevel, Uri baseUri)
+   at System.Windows.Markup.XamlReader.LoadBaml(Stream stream, ParserContext parserContext, Object parent, Boolean closeStream)
+   at System.Windows.Application.LoadBamlStreamWithSyncInfo(Stream stream, ParserContext pc)
+   at System.Windows.Application.DoStartup()
+   at System.Windows.Application.<.ctor>b__1_0(Object unused)
+   at System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   at System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+
+Inner exception details:
+Message: No default constructor found for type 'CivilRegistryApp.MainWindow'. You can use the Arguments or FactoryMethod directives to construct this type.
+Type: System.MissingMethodException
+Stack trace:    at System.Xaml.Schema.XamlTypeInvoker.DefaultCtorXamlActivator.EnsureConstructorDelegate(XamlTypeInvoker type)
+   at System.Xaml.Schema.XamlTypeInvoker.CreateInstance(Object[] arguments)
+   at MS.Internal.Xaml.Runtime.ClrObjectRuntime.CreateInstance(XamlType xamlType, Object[] args)

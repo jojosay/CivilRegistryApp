@@ -1,0 +1,23 @@
+﻿Crash occurred at: 2025-04-18 19:19:55.367
+Source: Application Startup
+
+Exception details:
+Message: SQLite Error 1: 'no such table: ScheduledReports'.
+Type: Microsoft.Data.Sqlite.SqliteException
+Stack trace:    at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at CivilRegistryApp.Data.Repositories.ReportRepository.GetActiveScheduledReportsAsync() in E:\dev_apps\ai_apps\new_app\CivilRegistryApp\Data\Repositories\ReportRepository.cs:line 18
+   at CivilRegistryApp.Modules.Reports.SchedulerService.RescheduleAllReportsAsync() in E:\dev_apps\ai_apps\new_app\CivilRegistryApp\Modules\Reports\SchedulerService.cs:line 134
+   at CivilRegistryApp.Modules.Reports.SchedulerService.StartAsync() in E:\dev_apps\ai_apps\new_app\CivilRegistryApp\Modules\Reports\SchedulerService.cs:line 38
+   at CivilRegistryApp.App.OnStartup(StartupEventArgs e) in E:\dev_apps\ai_apps\new_app\CivilRegistryApp\App.xaml.cs:line 66

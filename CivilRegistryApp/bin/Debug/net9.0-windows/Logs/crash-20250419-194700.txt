@@ -1,0 +1,20 @@
+﻿Crash occurred at: 2025-04-19 19:47:00.795
+Source: Application Startup
+
+Exception details:
+Message: User is not logged in
+Type: System.InvalidOperationException
+Stack trace:    at CivilRegistryApp.Modules.Auth.AuthenticationService.get_CurrentUser() in E:\dev_apps\ai_apps\new_app\CivilRegistryApp\Modules\Auth\AuthenticationService.cs:line 26
+   at CivilRegistryApp.MainWindow..ctor(IAuthenticationService authService, IDocumentService documentService, IRequestService requestService, AppDbContext dbContext, IUserActivityService userActivityService, IUserRepository userRepository) in E:\dev_apps\ai_apps\new_app\CivilRegistryApp\MainWindow.xaml.cs:line 81
+   at CivilRegistryApp.App.<>c.<ConfigureServices>b__7_2(IServiceProvider provider) in E:\dev_apps\ai_apps\new_app\CivilRegistryApp\App.xaml.cs:line 183
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at CivilRegistryApp.App.OnStartup(StartupEventArgs e) in E:\dev_apps\ai_apps\new_app\CivilRegistryApp\App.xaml.cs:line 71

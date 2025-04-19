@@ -1,0 +1,392 @@
+<UserControl x:Class="CivilRegistryApp.Modules.Documents.Views.DocumentDetailsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:CivilRegistryApp.Modules.Documents.Views"
+             mc:Ignorable="d"
+             d:DesignHeight="600" d:DesignWidth="800"
+             Background="{StaticResource PrimaryBrush}">
+    <Grid Background="{StaticResource PrimaryBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <StackPanel Grid.Row="0" Margin="20,20,20,10">
+            <TextBlock x:Name="DocumentTitleTextBlock"
+                       Text="Document Details"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       Margin="0,0,0,10"
+                       Foreground="White"/>
+            <TextBlock x:Name="DocumentSubtitleTextBlock"
+                       Text="Certificate #: "
+                       FontSize="16"
+                       Margin="0,0,0,5"
+                       Foreground="White"/>
+        </StackPanel>
+
+        <!-- Document Details -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="20,0,20,10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Left Column -->
+                <StackPanel Grid.Column="0" Margin="0,0,10,0">
+                    <GroupBox Header="Basic Information" Margin="0,0,0,10" Padding="10">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Document Type:" FontWeight="Bold" Margin="0,0,10,5" Foreground="White"/>
+                            <TextBlock Grid.Row="0" Grid.Column="1" x:Name="DocumentTypeTextBlock" Text="-" Margin="0,0,0,5" Foreground="White"/>
+
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Certificate Number:" FontWeight="Bold" Margin="0,0,10,5" Foreground="White"/>
+                            <TextBlock Grid.Row="1" Grid.Column="1" x:Name="CertificateNumberTextBlock" Text="-" Margin="0,0,0,5" Foreground="White"/>
+
+                            <TextBlock Grid.Row="2" Grid.Column="0" Text="Registry Office:" FontWeight="Bold" Margin="0,0,10,5" Foreground="White"/>
+                            <TextBlock Grid.Row="2" Grid.Column="1" x:Name="RegistryOfficeTextBlock" Text="-" Margin="0,0,0,5" Foreground="White"/>
+
+                            <TextBlock Grid.Row="3" Grid.Column="0" Text="Date of Event:" FontWeight="Bold" Margin="0,0,10,5" Foreground="White"/>
+                            <TextBlock Grid.Row="3" Grid.Column="1" x:Name="DateOfEventTextBlock" Text="-" Margin="0,0,0,5" Foreground="White"/>
+
+                            <TextBlock Grid.Row="4" Grid.Column="0" Text="Registration Date:" FontWeight="Bold" Margin="0,0,10,5" Foreground="White"/>
+                            <TextBlock Grid.Row="4" Grid.Column="1" x:Name="RegistrationDateTextBlock" Text="-" Margin="0,0,0,5" Foreground="White"/>
+
+                            <TextBlock Grid.Row="5" Grid.Column="0" Text="Gender:" FontWeight="Bold" Margin="0,0,10,5" Foreground="White"/>
+                            <TextBlock Grid.Row="5" Grid.Column="1" x:Name="GenderTextBlock" Text="-" Margin="0,0,0,5" Foreground="White"/>
+
+                            <TextBlock Grid.Row="6" Grid.Column="0" Text="Uploaded By:" FontWeight="Bold" Margin="0,0,10,5" Foreground="White"/>
+                            <TextBlock Grid.Row="6" Grid.Column="1" x:Name="UploadedByTextBlock" Text="-" Margin="0,0,0,5" Foreground="White"/>
+
+                            <TextBlock Grid.Row="7" Grid.Column="0" Text="Uploaded At:" FontWeight="Bold" Margin="0,0,10,5" Foreground="White"/>
+                            <TextBlock Grid.Row="7" Grid.Column="1" x:Name="UploadedAtTextBlock" Text="-" Margin="0,0,0,5" Foreground="White"/>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox x:Name="PersonInformationGroupBox" Header="Person Information" Margin="0,0,0,10" Padding="10">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Prefix:" FontWeight="Bold" Margin="0,0,10,5"/>
+                            <TextBlock Grid.Row="0" Grid.Column="1" x:Name="PrefixTextBlock" Text="-" Margin="0,0,0,5"/>
+
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Given Name:" FontWeight="Bold" Margin="0,0,10,5"/>
+                            <TextBlock Grid.Row="1" Grid.Column="1" x:Name="GivenNameTextBlock" Text="-" Margin="0,0,0,5"/>
+
+                            <TextBlock Grid.Row="2" Grid.Column="0" Text="Middle Name:" FontWeight="Bold" Margin="0,0,10,5"/>
+                            <TextBlock Grid.Row="2" Grid.Column="1" x:Name="MiddleNameTextBlock" Text="-" Margin="0,0,0,5"/>
+
+                            <TextBlock Grid.Row="3" Grid.Column="0" Text="Family Name:" FontWeight="Bold" Margin="0,0,10,5"/>
+                            <TextBlock Grid.Row="3" Grid.Column="1" x:Name="FamilyNameTextBlock" Text="-" Margin="0,0,0,5"/>
+
+                            <TextBlock Grid.Row="4" Grid.Column="0" Text="Suffix:" FontWeight="Bold" Margin="0,0,10,5"/>
+                            <TextBlock Grid.Row="4" Grid.Column="1" x:Name="SuffixTextBlock" Text="-" Margin="0,0,0,5"/>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox x:Name="ParentsInformationGroupBox" Header="Parents Information" Margin="0,0,0,10" Padding="10">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Father's Given Name:" FontWeight="Bold" Margin="0,0,10,5"/>
+                            <TextBlock Grid.Row="0" Grid.Column="1" x:Name="FatherGivenNameTextBlock" Text="-" Margin="0,0,0,5"/>
+
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Father's Middle Name:" FontWeight="Bold" Margin="0,0,10,5"/>
+                            <TextBlock Grid.Row="1" Grid.Column="1" x:Name="FatherMiddleNameTextBlock" Text="-" Margin="0,0,0,5"/>
+
+                            <TextBlock Grid.Row="2" Grid.Column="0" Text="Father's Family Name:" FontWeight="Bold" Margin="0,0,10,5"/>
+                            <TextBlock Grid.Row="2" Grid.Column="1" x:Name="FatherFamilyNameTextBlock" Text="-" Margin="0,0,0,5"/>
+
+                            <TextBlock Grid.Row="3" Grid.Column="0" Text="Mother's Maiden Given:" FontWeight="Bold" Margin="0,0,10,5"/>
+                            <TextBlock Grid.Row="3" Grid.Column="1" x:Name="MotherMaidenGivenTextBlock" Text="-" Margin="0,0,0,5"/>
+
+                            <TextBlock Grid.Row="4" Grid.Column="0" Text="Mother's Maiden Middle:" FontWeight="Bold" Margin="0,0,10,5"/>
+                            <TextBlock Grid.Row="4" Grid.Column="1" x:Name="MotherMaidenMiddleNameTextBlock" Text="-" Margin="0,0,0,5"/>
+
+                            <TextBlock Grid.Row="5" Grid.Column="0" Text="Mother's Maiden Family:" FontWeight="Bold" Margin="0,0,10,5"/>
+                            <TextBlock Grid.Row="5" Grid.Column="1" x:Name="MotherMaidenFamilyTextBlock" Text="-" Margin="0,0,0,5"/>
+                        </Grid>
+                    </GroupBox>
+                </StackPanel>
+
+                <!-- Right Column -->
+                <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                    <!-- Document Type Specific Information -->
+                    <GroupBox x:Name="BirthCertificateFieldsGroup" Header="Birth Certificate Information" Margin="0,0,0,10" Padding="10" Visibility="Collapsed">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Birth Weight:" FontWeight="Bold" Margin="0,0,10,5"/>
+                            <TextBlock Grid.Row="0" Grid.Column="1" x:Name="BirthWeightTextBlock" Text="-" Margin="0,0,0,5"/>
+
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Birth Order:" FontWeight="Bold" Margin="0,0,10,5"/>
+                            <TextBlock Grid.Row="1" Grid.Column="1" x:Name="BirthOrderTextBlock" Text="-" Margin="0,0,0,5"/>
+
+                            <TextBlock Grid.Row="2" Grid.Column="0" Text="Type of Birth:" FontWeight="Bold" Margin="0,0,10,5"/>
+                            <TextBlock Grid.Row="2" Grid.Column="1" x:Name="TypeOfBirthTextBlock" Text="-" Margin="0,0,0,5"/>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox x:Name="MarriageCertificateFieldsGroup" Header="Marriage Certificate Information" Margin="0,0,0,10" Padding="10" Visibility="Collapsed">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!-- Husband Information -->
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Husband Given Name:" FontWeight="Bold" Margin="0,0,10,5"/>
+                            <TextBlock Grid.Row="0" Grid.Column="1" x:Name="HusbandGivenNameTextBlock" Text="-" Margin="0,0,0,5"/>
+
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Husband Middle Name:" FontWeight="Bold" Margin="0,0,10,5"/>
+                            <TextBlock Grid.Row="1" Grid.Column="1" x:Name="HusbandMiddleNameTextBlock" Text="-" Margin="0,0,0,5"/>
+
+                            <TextBlock Grid.Row="2" Grid.Column="0" Text="Husband Family Name:" FontWeight="Bold" Margin="0,0,10,5"/>
+                            <TextBlock Grid.Row="2" Grid.Column="1" x:Name="HusbandFamilyNameTextBlock" Text="-" Margin="0,0,0,5"/>
+
+                            <!-- Wife Information -->
+                            <TextBlock Grid.Row="3" Grid.Column="0" Text="Wife Given Name:" FontWeight="Bold" Margin="0,0,10,5"/>
+                            <TextBlock Grid.Row="3" Grid.Column="1" x:Name="WifeGivenNameTextBlock" Text="-" Margin="0,0,0,5"/>
+
+                            <TextBlock Grid.Row="4" Grid.Column="0" Text="Wife Middle Name:" FontWeight="Bold" Margin="0,0,10,5"/>
+                            <TextBlock Grid.Row="4" Grid.Column="1" x:Name="WifeMiddleNameTextBlock" Text="-" Margin="0,0,0,5"/>
+
+                            <TextBlock Grid.Row="5" Grid.Column="0" Text="Wife Family Name:" FontWeight="Bold" Margin="0,0,10,5"/>
+                            <TextBlock Grid.Row="5" Grid.Column="1" x:Name="WifeFamilyNameTextBlock" Text="-" Margin="0,0,0,5"/>
+
+                            <!-- Marriage Details -->
+                            <TextBlock Grid.Row="6" Grid.Column="0" Text="Marriage Date:" FontWeight="Bold" Margin="0,0,10,5"/>
+                            <TextBlock Grid.Row="6" Grid.Column="1" x:Name="MarriageDateTextBlock" Text="-" Margin="0,0,0,5"/>
+
+                            <TextBlock Grid.Row="7" Grid.Column="0" Text="Marriage Type:" FontWeight="Bold" Margin="0,0,10,5"/>
+                            <TextBlock Grid.Row="7" Grid.Column="1" x:Name="MarriageTypeTextBlock" Text="-" Margin="0,0,0,5"/>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox x:Name="DeathCertificateFieldsGroup" Header="Death Certificate Information" Margin="0,0,0,10" Padding="10" Visibility="Collapsed">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Cause of Death:" FontWeight="Bold" Margin="0,0,10,5"/>
+                            <TextBlock Grid.Row="0" Grid.Column="1" x:Name="CauseOfDeathTextBlock" Text="-" Margin="0,0,0,5"/>
+
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Age at Death:" FontWeight="Bold" Margin="0,0,10,5"/>
+                            <TextBlock Grid.Row="1" Grid.Column="1" x:Name="AgeAtDeathTextBlock" Text="-" Margin="0,0,0,5"/>
+
+                            <TextBlock Grid.Row="2" Grid.Column="0" Text="Place of Death:" FontWeight="Bold" Margin="0,0,10,5"/>
+                            <TextBlock Grid.Row="2" Grid.Column="1" x:Name="PlaceOfDeathTextBlock" Text="-" Margin="0,0,0,5"/>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox x:Name="OtherDocumentFieldsGroup" Header="Other Document Information" Margin="0,0,0,10" Padding="10" Visibility="Collapsed">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Document Purpose:" FontWeight="Bold" Margin="0,0,10,5"/>
+                            <TextBlock Grid.Row="0" Grid.Column="1" x:Name="DocumentPurposeTextBlock" Text="-" Margin="0,0,0,5"/>
+
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Document Category:" FontWeight="Bold" Margin="0,0,10,5"/>
+                            <TextBlock Grid.Row="1" Grid.Column="1" x:Name="DocumentCategoryTextBlock" Text="-" Margin="0,0,0,5"/>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox Header="Location Information" Margin="0,0,0,10" Padding="10">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Barangay:" FontWeight="Bold" Margin="0,0,10,5"/>
+                            <TextBlock Grid.Row="0" Grid.Column="1" x:Name="BarangayTextBlock" Text="-" Margin="0,0,0,5"/>
+
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="City/Municipality:" FontWeight="Bold" Margin="0,0,10,5"/>
+                            <TextBlock Grid.Row="1" Grid.Column="1" x:Name="CityMunicipalityTextBlock" Text="-" Margin="0,0,0,5"/>
+
+                            <TextBlock Grid.Row="2" Grid.Column="0" Text="Province:" FontWeight="Bold" Margin="0,0,10,5"/>
+                            <TextBlock Grid.Row="2" Grid.Column="1" x:Name="ProvinceTextBlock" Text="-" Margin="0,0,0,5"/>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox Header="Registry Information" Margin="0,0,0,10" Padding="10">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Registry Book:" FontWeight="Bold" Margin="0,0,10,5"/>
+                            <TextBlock Grid.Row="0" Grid.Column="1" x:Name="RegistryBookTextBlock" Text="-" Margin="0,0,0,5"/>
+
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Volume Number:" FontWeight="Bold" Margin="0,0,10,5"/>
+                            <TextBlock Grid.Row="1" Grid.Column="1" x:Name="VolumeNumberTextBlock" Text="-" Margin="0,0,0,5"/>
+
+                            <TextBlock Grid.Row="2" Grid.Column="0" Text="Page Number:" FontWeight="Bold" Margin="0,0,10,5"/>
+                            <TextBlock Grid.Row="2" Grid.Column="1" x:Name="PageNumberTextBlock" Text="-" Margin="0,0,0,5"/>
+
+                            <TextBlock Grid.Row="3" Grid.Column="0" Text="Line Number:" FontWeight="Bold" Margin="0,0,10,5"/>
+                            <TextBlock Grid.Row="3" Grid.Column="1" x:Name="LineNumberTextBlock" Text="-" Margin="0,0,0,5"/>
+
+                            <TextBlock Grid.Row="4" Grid.Column="0" Text="Attendant Name:" FontWeight="Bold" Margin="0,0,10,5"/>
+                            <TextBlock Grid.Row="4" Grid.Column="1" x:Name="AttendantNameTextBlock" Text="-" Margin="0,0,0,5"/>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox Header="Additional Information" Margin="0,0,0,10" Padding="10">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Remarks:" FontWeight="Bold" Margin="0,0,10,5"/>
+                            <TextBlock Grid.Row="0" Grid.Column="1" x:Name="RemarksTextBlock" Text="-" Margin="0,0,0,5" TextWrapping="Wrap"/>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox Header="Document Files" Margin="0,0,0,10" Padding="10">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!-- Front Document -->
+                            <StackPanel Grid.Column="0" Grid.Row="0" Margin="0,0,5,0">
+                                <TextBlock Text="Front Document:" FontWeight="Bold" Margin="0,0,0,5"/>
+                                <TextBlock x:Name="FrontFilePathTextBlock" Text="-" TextWrapping="Wrap" Margin="0,0,0,5"/>
+                                <Button x:Name="PreviewFrontButton"
+                                        Content="Preview Front"
+                                        HorizontalAlignment="Left"
+                                        Padding="10,5"
+                                        Margin="0,5,0,0"
+                                        Background="#2E3A59"
+                                        Foreground="White"
+                                        Click="PreviewFrontButton_Click"/>
+                            </StackPanel>
+
+                            <!-- Back Document -->
+                            <StackPanel Grid.Column="1" Grid.Row="0" Margin="5,0,0,0">
+                                <TextBlock Text="Back Document:" FontWeight="Bold" Margin="0,0,0,5"/>
+                                <TextBlock x:Name="BackFilePathTextBlock" Text="-" TextWrapping="Wrap" Margin="0,0,0,5"/>
+                                <Button x:Name="PreviewBackButton"
+                                        Content="Preview Back"
+                                        HorizontalAlignment="Left"
+                                        Padding="10,5"
+                                        Margin="0,5,0,0"
+                                        Background="#2E3A59"
+                                        Foreground="White"
+                                        Click="PreviewBackButton_Click"/>
+                            </StackPanel>
+                        </Grid>
+                    </GroupBox>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+
+        <!-- Footer -->
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Margin="20,10,20,20">
+            <Button x:Name="CloseButton"
+                    Content="Close"
+                    Padding="20,5"
+                    Background="#2E3A59"
+                    Foreground="White"
+                    Click="CloseButton_Click"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

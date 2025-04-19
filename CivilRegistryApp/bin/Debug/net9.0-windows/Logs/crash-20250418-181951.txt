@@ -1,0 +1,16 @@
+﻿Crash occurred at: 2025-04-18 18:19:51.021
+Source: Application Startup
+
+Exception details:
+Message: The data is NULL at ordinal 8. This method can't be called on NULL values. Check using IsDBNull before calling.
+Type: System.InvalidOperationException
+Stack trace:    at Microsoft.Data.Sqlite.SqliteValueReader.GetString(Int32 ordinal)
+   at Microsoft.Data.Sqlite.SqliteDataReader.GetString(Int32 ordinal)
+   at lambda_method14(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at CivilRegistryApp.Data.DatabaseInitializer.AddMissingColumnsAsync(AppDbContext context) in E:\dev_apps\ai_apps\new_app\CivilRegistryApp\Data\DatabaseInitializer.cs:line 124
+   at CivilRegistryApp.Data.DatabaseInitializer.InitializeAsync(AppDbContext context) in E:\dev_apps\ai_apps\new_app\CivilRegistryApp\Data\DatabaseInitializer.cs:line 32
+   at CivilRegistryApp.App.EnsureDatabaseCreatedAsync(AppDbContext dbContext) in E:\dev_apps\ai_apps\new_app\CivilRegistryApp\App.xaml.cs:line 86
+   at CivilRegistryApp.App.OnStartup(StartupEventArgs e) in E:\dev_apps\ai_apps\new_app\CivilRegistryApp\App.xaml.cs:line 60

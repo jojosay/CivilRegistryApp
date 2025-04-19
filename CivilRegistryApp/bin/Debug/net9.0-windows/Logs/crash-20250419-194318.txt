@@ -1,0 +1,8 @@
+﻿Crash occurred at: 2025-04-19 19:43:18.185
+Source: MainWindow.Constructor
+
+Exception details:
+Message: User is not logged in
+Type: System.InvalidOperationException
+Stack trace:    at CivilRegistryApp.Modules.Auth.AuthenticationService.get_CurrentUser() in E:\dev_apps\ai_apps\new_app\CivilRegistryApp\Modules\Auth\AuthenticationService.cs:line 26
+   at CivilRegistryApp.MainWindow..ctor(IAuthenticationService authService, IDocumentService documentService, IRequestService requestService, AppDbContext dbContext, IUserActivityService userActivityService, IUserRepository userRepository) in E:\dev_apps\ai_apps\new_app\CivilRegistryApp\MainWindow.xaml.cs:line 81
