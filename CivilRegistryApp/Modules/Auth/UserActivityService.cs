@@ -33,10 +33,7 @@ namespace CivilRegistryApp.Modules.Auth
                 }
 
                 // Ensure entityType is never null to satisfy the NOT NULL constraint
-                if (string.IsNullOrEmpty(entityType))
-                {
-                    entityType = "General";
-                }
+                entityType = string.IsNullOrEmpty(entityType) ? "General" : entityType;
 
                 var activity = new UserActivity
                 {

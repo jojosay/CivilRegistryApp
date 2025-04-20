@@ -77,6 +77,9 @@ public partial class MainWindow : Window
             this.Loaded += MainWindow_Loaded;
             this.Closing += MainWindow_Closing;
 
+            // Commented out to prevent automatic opening of the calendar demo window
+            // OpenCustomCalendarDemoWindow();
+
             // Load Dashboard view by default if user is logged in
             if (_authService.CurrentUser != null)
             {
@@ -103,6 +106,22 @@ public partial class MainWindow : Window
     private void MainWindow_Closing(object? sender, System.ComponentModel.CancelEventArgs e)
     {
         Log.Information("MainWindow closing");
+    }
+
+    private void OpenCustomCalendarDemoWindow()
+    {
+        try
+        {
+            Log.Debug("Opening custom calendar demo window");
+            var customCalendarWindow = new CustomCalendarDemoWindow();
+            customCalendarWindow.Show();
+            Log.Information("Custom calendar demo window opened");
+        }
+        catch (Exception ex)
+        {
+            Log.Error(ex, "Error opening custom calendar demo window");
+            MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
     }
 
     private void UpdateUIBasedOnAuthState()
@@ -482,7 +501,8 @@ public partial class MainWindow : Window
             // Log activity
             await _userActivityService.LogActivityAsync(
                 "Admin",
-                "Accessed activity logs");
+                "Accessed activity logs",
+                "UserInterface");
 
             Log.Information("Activity log view shown");
         }
@@ -741,5 +761,23 @@ public partial class MainWindow : Window
     {
         panel.Children.Add(new TextBlock { Text = title, FontSize = 16, FontWeight = FontWeights.Bold, Margin = new Thickness(0, 10, 0, 5) });
         panel.Children.Add(new TextBlock { Text = content, TextWrapping = TextWrapping.Wrap, Margin = new Thickness(0, 0, 0, 15) });
+    }
+
+    /// <summary>
+    /// Opens the custom calendar demo window
+    /// </summary>
+    private void CalendarDemoButton_Click(object sender, RoutedEventArgs e)
+    {
+        try
+        {
+            Log.Debug("Calendar Demo button clicked");
+            OpenCustomCalendarDemoWindow();
+            Log.Information("Calendar Demo window opened");
+        }
+        catch (Exception ex)
+        {
+            Log.Error(ex, "Error in CalendarDemoButton_Click");
+            MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
     }
 }
